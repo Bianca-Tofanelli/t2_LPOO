@@ -13,7 +13,8 @@ public class Main
       for (;;)
       {
         String line = Console.readString("> ");
-
+        if (line == null)
+          return;
         if (!line.equals("") && !Calc.execute(line))
           return;
       }
