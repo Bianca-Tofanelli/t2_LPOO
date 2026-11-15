@@ -1,0 +1,11 @@
+DEFINE a
+DEFINE b = x * y * z
+LIST
+a = log(e) + sin(x)
+EVAL(a, 0.0, 1.0, 1.0)
+LIST
+CLEAR a
+LIST
+CLEAR
+LIST
+EXIT

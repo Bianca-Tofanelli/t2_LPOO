@@ -1,0 +1,11 @@
+DEFINE x = 10.0
+y = 5.0
+z = x + y
+e = 2.71
+log = x + 1.0
+sin = y
+EVAL(x + y, 1.0, 2.0)
+DIFF(x + y, w)
+DEFINE invalido = x + * y
+comando_inexistente
+EVAL(x @ y, 1.0, 2.0, 3.0)
