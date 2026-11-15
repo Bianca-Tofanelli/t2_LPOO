@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 import lpoo.sym.*;
-import lpoo.util.*;
+import lpoo.util.Console;
 
 public class Main
 {
