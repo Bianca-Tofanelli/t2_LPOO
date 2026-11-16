@@ -21,7 +21,7 @@ public class Function
   @Override
   public float eval(float x, float y, float z)
   {
-    return function.eval(arg.eval(x, y, z));
+    return function.eval(arg.eval(x, y, z),0,0);
   }
 
   @Override
