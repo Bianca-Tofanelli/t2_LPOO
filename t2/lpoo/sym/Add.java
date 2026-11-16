@@ -9,15 +9,15 @@ public final class Add
   }
 
   @Override
-  public float eval(float x)
+  public float eval(float x, float y, float z)
   {
-    return e1.eval(x) + e2.eval(x);
+    return e1.eval(x, y, z) + e2.eval(x, y, z);
   }
 
   @Override
-  public Expression diff()
+  public Expression diff(X v) //v representa o termo a ser trabalhado , demais termos constantes
   {
-    return (new Add(e1.diff(), e2.diff())).simplify();
+    return (new Add(e1.diff(v), e2.diff(v))).simplify();
   }
 
   @Override

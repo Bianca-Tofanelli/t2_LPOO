@@ -13,17 +13,22 @@ public class Function
     return new Function(NativeFunction.COS, arg);
   }
 
-  @Override
-  public float eval(float x)
+  public static final Function log(Expression arg)
   {
-    return function.eval(arg.eval(x));
+    return new Function(NativeFunction.LOG, arg);
   }
 
   @Override
-  public Expression diff()
+  public float eval(float x, float y, float z)
   {
-    Expression f = new Function(function.diff(), arg); 
-    return (new Mul(f, arg.diff())).simplify();
+    return function.eval(arg.eval(x, y, z));
+  }
+
+  @Override
+  public Expression diff(X v)
+  {
+    // regra da cadeia: f(g)' = f'(g) * g'
+    return (new Mul(function.derivative(arg), arg.diff(v))).simplify();
   }
 
   @Override
@@ -32,10 +37,10 @@ public class Function
     return String.format("%s(%s)", function, arg);
   }
 
-  private final Expression function;
+  private final NativeFunction function;
   private final Expression arg;
 
-  private Function(Expression function, Expression arg)
+  private Function(NativeFunction function, Expression arg)
   {
     this.function = function;
     this.arg = arg;
@@ -48,6 +53,21 @@ abstract class NativeFunction
 {
   static final NativeFunction SIN = new Sin();
   static final NativeFunction COS = new Cos();
+  static final NativeFunction LOG = new Log();
+
+  /**
+   * Retorna f'(arg), isto é, a derivada da função nativa aplicada a arg.
+   */
+  abstract Expression derivative(Expression arg);
+
+  /**
+   * Derivada da função em relação ao seu único argumento (variável x).
+   */
+  @Override
+  public Expression diff(X v) //ignora o v ,visto que o termo trabalhado sempre se encontra em x
+  {
+    return derivative(X.x);
+  }
 
 } // NativeFunction
 
@@ -55,15 +75,15 @@ final class Sin
   extends NativeFunction
 {
   @Override
-  public float eval(float x)
+  public float eval(float x, float y, float z)
   {
     return (float)Math.sin(x);
   }
 
   @Override
-  public Expression diff()
+  Expression derivative(Expression arg)
   {
-    return COS;
+    return Function.cos(arg); //retorna o cosseno do termo , o qual e a derivada do sin
   }
 
   @Override
@@ -78,15 +98,15 @@ final class Cos
   extends NativeFunction
 {
   @Override
-  public float eval(float x)
+  public float eval(float x, float y, float z)
   {
     return (float)Math.cos(x);
   }
 
   @Override
-  public Expression diff()
+  Expression derivative(Expression arg)
   {
-    return new Minus(SIN);
+    return new Minus(Function.sin(arg)); //Retorna o negativo de seno , o qual e a derivada do cos
   }
 
   @Override
@@ -96,3 +116,26 @@ final class Cos
   }
 
 } // Cos
+
+final class Log
+  extends NativeFunction
+{
+  @Override
+  public float eval(float x, float y, float z)
+  {
+    return (float)Math.log(x); // log e tratato pelo java como ln , por isso esta como log apenas
+  }
+
+  @Override
+  Expression derivative(Expression arg)
+  {
+    return new Div(Constant.ONE, arg);
+  }
+
+  @Override
+  public String toString()
+  {
+    return "log";
+  }
+
+} // Log
