@@ -23,6 +23,9 @@ final class Keywords
     map = new TreeMap<>();
     add("eval", TokenType.EVAL);
     add("diff", TokenType.DIFF);
+    add("define", TokenType.DEFINE);
+    add("clear", TokenType.CLEAR);
+    add("list", TokenType.LIST);
     add("exit", TokenType.EXIT);
   }
 
