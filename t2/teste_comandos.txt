@@ -1,10 +1,10 @@
-DEFINE a
-DEFINE b = x * y * z
-LIST
+define a = 0.0
+define b = x * y * z
+list
 a = log(e) + sin(x)
-EVAL(a, 0.0, 1.0, 1.0)
-DEFINE b = x + y
-LIST
-CLEAR
-LIST
-EXIT
+eval(a, 0.0, 1.0, 1.0)
+b = x + y
+list
+clear
+list
+exit
