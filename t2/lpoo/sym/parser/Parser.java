@@ -48,10 +48,17 @@ public class Parser
       c = define();
     }
     else if (token.type == TokenType.CLEAR)
-    {
-      advance(); 
-      c = Command.clear;
-    }
+{
+  advance();
+  String name = null;
+  if (token.type == TokenType.NAME)
+  {
+    name = ((Token.Name)token).value();
+    advance();
+  }
+  c = Command.clear;
+  c.setArguments(name);
+}
     else if (token.type == TokenType.LIST)
     {
       advance(); 

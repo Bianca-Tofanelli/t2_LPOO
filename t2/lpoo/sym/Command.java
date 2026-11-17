@@ -85,14 +85,25 @@ public abstract class Command
 
   public static final Command clear = new Command()
   {
-    protected boolean run()
+   @Override
+  protected boolean run()
+  {
+    if (arguments != null && arguments.length > 0 && arguments[0] != null)
+    {
+      String name = (String)arguments[0];
+      if (symbols.remove(name) != null)
+        Console.println("Removed '" + name + "'");
+      else
+        Console.println("Undefined identifier '" + name + "'");
+    }
+    else
     {
       symbols.clear();
       Console.println("Environment cleared");
-
-      return true;
     }
-  };
+    return true;
+  }
+};
 
   public static final Command list = new Command()
   {

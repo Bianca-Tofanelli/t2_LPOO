@@ -11,4 +11,5 @@ diff(x + y, w)
 define invalido = x + * y
 comando_inexistente
 eval(x @ y, 1.0, 2.0, 3.0)
+clear inexistente
 clear

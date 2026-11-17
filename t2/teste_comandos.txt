@@ -5,6 +5,8 @@ a = log(e) + sin(x)
 eval(a, 0.0, 1.0, 1.0)
 b = x + y
 list
+clear a
+list
 clear
 list
 exit
