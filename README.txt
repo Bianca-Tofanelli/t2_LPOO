@@ -10,9 +10,9 @@ Atividades concluídas: Todos os pedidos foram completamente concluídos (A1, A2
 Mudanças em relação à gramática: inicialização obrigatória no define para evitar símbolos nulos (define <nome> = <expressao>).
 
 Testes feitos:
-teste_operacoes.txt: Avaliação numérica, derivadas parciais em x, y e z, funções e potências.
-teste_comandos.txt: Fluxo de define, atribuição '=', eval, list, clear e exit.
-teste_erros.txt: Tratamento de erros sintáticos, léxicos e de símbolos reservados.
+teste_operacoes.txt: avaliação numérica, derivadas parciais em x, y e z, funções e potências.
+teste_comandos.txt: define, atribuição "=", eval, list, clear e exit.
+teste_erros.txt: tratamento de erros sintáticos, léxicos e de símbolos reservados.
 
 Como compilar e executar:
 Compilar:
