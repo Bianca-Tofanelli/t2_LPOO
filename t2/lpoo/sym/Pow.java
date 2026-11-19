@@ -1,5 +1,10 @@
 package lpoo.sym;
-
+/*
+ * Autores: 
+Bianca Andrade Tofanelli, 
+Luis Henrique Cardoso, 
+Paola Vendruscolo
+ */
 public final class Pow
   extends BinaryExpression
 {

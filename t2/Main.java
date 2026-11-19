@@ -2,7 +2,12 @@ import java.io.*;
 import java.util.Scanner;
 import lpoo.sym.*;
 import lpoo.util.Console;
-
+/*
+ * Autores: 
+Bianca Andrade Tofanelli, 
+Luis Henrique Cardoso, 
+Paola Vendruscolo
+ */
 public class Main
 {
   public static void main(String[] args)

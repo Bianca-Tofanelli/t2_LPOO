@@ -1,5 +1,11 @@
 package lpoo.sym;
 
+/*
+ * Autores: 
+Bianca Andrade Tofanelli, 
+Luis Henrique Cardoso, 
+Paola Vendruscolo
+ */
 public final class Div
   extends BinaryExpression
 {

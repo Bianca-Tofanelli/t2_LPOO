@@ -2,9 +2,11 @@ package lpoo.sym.parser;
 
 import lpoo.sym.*;
 
-/**
- *
- * @author insert your name here
+/*
+ * Autores: 
+Bianca Andrade Tofanelli, 
+Luis Henrique Cardoso, 
+Paola Vendruscolo
  */
 public class Parser
 {

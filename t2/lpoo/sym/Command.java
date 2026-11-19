@@ -4,9 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import lpoo.util.*;
 
-/**
- *
- * @author insert your name here
+/*
+ * Autores: 
+Bianca Andrade Tofanelli, 
+Luis Henrique Cardoso, 
+Paola Vendruscolo
  */
 public abstract class Command
 {

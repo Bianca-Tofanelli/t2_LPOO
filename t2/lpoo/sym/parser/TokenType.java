@@ -1,8 +1,10 @@
 package lpoo.sym.parser;
 
-/**
- *
- * @author insert your name here
+/*
+ * Autores: 
+Bianca Andrade Tofanelli, 
+Luis Henrique Cardoso, 
+Paola Vendruscolo
  */
 enum TokenType
 {

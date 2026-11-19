@@ -2,9 +2,11 @@ package lpoo.sym.parser;
 
 import java.util.TreeMap;
 
-/**
- *
- * @author insert your name here
+/*
+ * Autores: 
+Bianca Andrade Tofanelli, 
+Luis Henrique Cardoso, 
+Paola Vendruscolo
  */
 final class Keywords
 {
