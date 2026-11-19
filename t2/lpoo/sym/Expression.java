@@ -17,16 +17,25 @@ public abstract class Expression
    */
   public abstract Expression diff(X v);
 
+  /**
+   * Declara o metodo simplify , responsavel por remover termos despreziveis ao termo (EX : 1*X = X)
+   */
   public Expression simplify()
   {
     return this;
   }
 
+  /**
+  * Retorna se o termo e constante
+  */
   public final boolean isConstant()
   {
     return this instanceof Constant;
   }
 
+  /**
+   * Retorna se o termo e binario
+   */
   public final boolean isBinary()
   {
     return this instanceof BinaryExpression;

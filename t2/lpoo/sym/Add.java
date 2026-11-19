@@ -26,12 +26,15 @@ public final class Add
     return (new Add(e1.diff(v), e2.diff(v))).simplify();
   }
 
+  //metodo que cria um atalho em alguns casos de soma , retornando o valor s2 caso s1 seja nulo e vice versa
   @Override
   public Expression simplify()
   {
+    //simplifica os dois termos da soma
     Expression s1 = e1.simplify();
     Expression s2 = e2.simplify();
 
+    //verifica se cada um dos termos e nulo , retornando o outro em caso positivo
     if (s1.isConstant())
     {
       float v1 = ((Constant)s1).value;
@@ -43,6 +46,7 @@ public final class Add
     }
     else if (s2.isConstant() && 0 == ((Constant)s2).value)
       return s1;
+      //caso nenhum dos termos seja nulo retorna a soma normal
     return new Add(s1, s2);
   }
 

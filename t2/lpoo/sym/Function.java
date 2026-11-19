@@ -7,6 +7,9 @@ Paola Vendruscolo
  */
 public class Function
   extends Expression
+/**
+ * Declara as funcoes de seno,cos e ln (log)
+ */
 {
   public static final Function sin(Expression arg)
   {
@@ -29,6 +32,7 @@ public class Function
     return function.eval(arg.eval(x, y, z),0,0);
   }
 
+  
   @Override
   public Expression diff(X v)
   {
@@ -53,6 +57,9 @@ public class Function
 
 } // Function
 
+/**
+ * Declara as classes os quais contemplam as funcoes sen , cos e ln
+ */
 abstract class NativeFunction
   extends Expression 
 {

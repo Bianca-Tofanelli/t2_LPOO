@@ -40,7 +40,7 @@ public final class Pow
         return bd;
       return (new Mul(new Mul(e2, new Pow(e1, exp - 1)), bd)).simplify();
     }
-    //trecho da derivada de potencias nao constantes
+    //trecho da derivada dos expoentes nao constantes
     Expression t1 = new Mul(e2.diff(v), Function.log(e1));
     Expression t2 = new Div(new Mul(e2, e1.diff(v)), e1);
 
@@ -54,14 +54,17 @@ public final class Pow
     Expression bs = e1.simplify();
     Expression es = e2.simplify();
 
+    //se for constante , temos os casos notaveis de expoente
     if (es.isConstant())
     {
       float exp = ((Constant)es).value;
-
+      //caso o expoente seja nulo ("0") , retornamos um
       if (0 == exp)
         return Constant.ONE;
+      //caso o expoente seja igual a um , retornamos o valor original
       if (1 == exp)
         return bs;
+      //se o valor da base e constante retorna o valor da exponencial
       if (bs.isConstant())
         return new Constant((float)Math.pow(((Constant)bs).value, exp));
     }

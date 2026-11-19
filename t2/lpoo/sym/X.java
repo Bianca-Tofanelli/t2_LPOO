@@ -46,6 +46,7 @@ public final class X
   }
 
   @Override
+  //se o termo a ser derivado pertence ao termo sendo derivado (EX : (y)`dx , y == x?)
   public Expression diff(X v)
   {
     return this == v ? Constant.ONE : Constant.ZERO;

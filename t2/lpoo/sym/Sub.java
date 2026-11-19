@@ -31,17 +31,23 @@ public final class Sub
     Expression s1 = e1.simplify();
     Expression s2 = e2.simplify();
 
+    //casos notaveis de constantes
     if (s1.isConstant())
+    
     {
       float v1 = ((Constant)s1).value;
 
+      //se o subtraendo e constante retorna a subtracao regular
       if (s2.isConstant())
         return new Constant(v1 - ((Constant)s2).value);
+      //se o minuendo e nulo retorna o negativo do subtraendo
       if (0 == v1)
         return (new Minus(s2)).simplify();
     }
+    //se o subtraendo e nulo, retona o minuendo 
     else if (s2.isConstant() && 0 == ((Constant)s2).value)
       return s1;
+    //caso nenhum caso seja satisfeito retorna o tratamento regular sem atalhos
     return new Sub(s1, s2);
   }
 
