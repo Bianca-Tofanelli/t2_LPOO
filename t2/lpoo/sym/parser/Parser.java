@@ -36,11 +36,11 @@ public class Parser
       args();
       match(TokenType.RPAREN);
       c = Command.eval;
-      // insert your code here
+      // Entrega a expressão e coordenadas lidas no Command.eval
       c.setArguments(expr, x, y, z);
       //
     }
-    // insert your code here
+    // Desvios condicionais para reconhecer os comandos diff, define, clear e list
     else if (token.type == TokenType.DIFF)
     {
       c = diff();
@@ -66,6 +66,7 @@ public class Parser
       advance(); 
       c = Command.list;
     }
+    // permite criar e usar variáveis sem o define
     else if (token.type == TokenType.NAME)
     {
       c = assignment();
@@ -108,7 +109,8 @@ public class Parser
     float z = ((Token.Float)token).value();
 
     advance();
-    // insert your code here
+    /* Copia os números lidos nas variáveis locais do args() para os atributos 
+    do instância do parser para que eles não sejam descartaos*/
     this.x = x;
     this.y = y;
     this.z = z;
@@ -118,7 +120,7 @@ public class Parser
   private void expression()
     throws ParseException
   {
-    // insert your code here
+    // addSub() fica no topo da hierarquia, já que soma e subtração tem menor precedência
     expr = addSub();
     //
   }
@@ -186,13 +188,14 @@ public class Parser
   private float y;
   private float z;
 
+  // Impede o usuário de definir ou atribuir valores aos nomes reservados
   private boolean isReservedMathName(String name)
   {
     return name.equals("x") || name.equals("y") || name.equals("z") ||
            name.equals("e") || name.equals("sin") || name.equals("cos") ||
            name.equals("log") || name.equals("pi");
   }
-
+  // Lê a sintaxe diff(expressao, variavel), verifica se a variável é válida
   private Command diff()
     throws ParseException
   {
@@ -215,7 +218,8 @@ public class Parser
     c.setArguments(expr, v);
     return c;
   }
-
+  /* Verifica se a variável criada tem como nome uma palavra ou já existe
+  se sim, lança erro*/
   private Command define()
     throws ParseException
   {
@@ -237,7 +241,7 @@ public class Parser
     c.setArguments(name, expr);
     return c;
   }
-
+  // Permite que o usuário redefina uma variável que já criou
   private Command assignment()
     throws ParseException
   {
@@ -255,7 +259,10 @@ public class Parser
     c.setArguments(name, expr);
     return c;
   }
+  
+  // Hierarquia de análise de expressões
 
+  // Resolve somas, subtrações e trata sinais + ou -
   private Expression addSub()
     throws ParseException
   {
@@ -283,7 +290,7 @@ public class Parser
     }
     return e;
   }
-
+  // Resolve multiplicações e divisões
   private Expression mul()
     throws ParseException
   {
@@ -298,7 +305,7 @@ public class Parser
     }
     return e;
   }
-
+  // Resolve potências com recursão à direita 
   private Expression pow()
     throws ParseException
   {
@@ -312,7 +319,8 @@ public class Parser
     }
     return base;
   }
-
+  /* Resolve parênteses, constantes "pi" e "e", funções seno, cosseno e log,
+  variáveis X e símbolos salvos pelo usuário*/ 
   private Expression primary()
     throws ParseException
   {
