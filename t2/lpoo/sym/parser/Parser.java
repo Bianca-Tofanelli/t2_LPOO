@@ -110,7 +110,7 @@ public class Parser
 
     advance();
     /* Copia os números lidos nas variáveis locais do args() para os atributos 
-    do instância do parser para que eles não sejam descartaos*/
+    do instância do parser para que eles não sejam descartados*/
     this.x = x;
     this.y = y;
     this.z = z;
