@@ -135,7 +135,7 @@ final class Log
   @Override
   public float eval(float x, float y, float z)
   {
-    return (float)Math.log(x); // log e tratato pelo java como ln , por isso esta como log apenas
+    return (float)Math.log(x); // log é tratato pelo java como ln , por isso esta como log apenas
   }
 
   @Override

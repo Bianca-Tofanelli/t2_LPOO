@@ -20,7 +20,7 @@ public final class Mul
   }
 
   @Override
-  public Expression diff(X v)
+  public Expression diff(X v)  // a variável v na regra do produto
   {
     Expression t1 = (new Mul(e1.diff(v), e2)).simplify();
     Expression t2 = (new Mul(e1, e2.diff(v))).simplify();
