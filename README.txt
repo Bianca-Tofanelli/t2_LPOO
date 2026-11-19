@@ -3,7 +3,7 @@ Bianca Andrade Tofanelli, 202519050206
 Luis Henrique Cardoso, 202519050150
 Paola Vendruscolo, 202519050133
 
-Link do vídeo:
+Link do vídeo: https://youtu.be/3DF6ArVAnw8
 
 Atividades concluídas: Todos os pedidos foram completamente concluídos (A1, A2, A3 e A4).
 
