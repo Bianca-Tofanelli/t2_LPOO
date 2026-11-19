@@ -34,7 +34,8 @@ public abstract class Command
     @Override
     protected boolean run()
     {
-      //
+      /*  Extrai a Expression e as coordenadas x, y e z do vetor
+      arguments e imprime o resultado no console */
       Expression expr = (Expression)arguments[0];
       float x = (Float)arguments[1];
       float y = (Float)arguments[2];
@@ -51,7 +52,8 @@ public abstract class Command
     @Override
     protected boolean run()
     {
-      // 
+       /* Extrai a Expression e a variável de derivação
+      e calcula a derivada simbólica simplificada, imprime no console*/
       Expression expr = (Expression)arguments[0];
       X v = (X)arguments[1];
 
@@ -70,7 +72,9 @@ public abstract class Command
     }
   };
 
-  //
+  // Novos comandos: define, clear e list
+
+  // Recebe um nome e uma Expression, grava no symbols e imprime que definiu no console
   public static final Command define = new Command() 
   {
     protected boolean run()
@@ -84,7 +88,7 @@ public abstract class Command
       return true;
     }
   };
-
+  // Limpa as definições criadas e imprime avisando
   public static final Command clear = new Command()
   {
    @Override
@@ -106,7 +110,7 @@ public abstract class Command
     return true;
   }
 };
-
+// Imprime todas as variáveis definidas, se não tiver nenhuma, imprime "No definitions"
   public static final Command list = new Command()
   {
     protected boolean run()
@@ -120,7 +124,8 @@ public abstract class Command
       return true;
     }
   };
-
+    /* Tabela de símbolos, armazena as expressões na ordem em que foram criadas 
+  para que o parser possa consultar essas variáveis ao ler novas fórmulas*/ 
   public static boolean hasSymbol(String name)
   {
     return symbols.containsKey(name);
